@@ -61,9 +61,9 @@ public class Date {
     /**
      * Constructs a new Date object.
      *
-     * @param day
-     * @param month
-     * @param year
+     * @param day for the day of the month
+     * @param month for the month
+     * @param year for the year
      * @throws IllegalArgumentException if the date is invalid
      */
     public Date(final int day, final int month, final int year) {
@@ -100,6 +100,11 @@ public class Date {
         return year;
     }
 
+    /**
+     *
+     * @param month for the month as an integer
+     * @return month name as a string
+     */
     public String getMonthName(int month) {
         final String[] monthNames = {
                 "January", "February", "March", "April",
@@ -119,6 +124,11 @@ public class Date {
         return (year + "-" + month + "-" + day);
     }
 
+    /**
+     *
+     *
+     * @return day of the week as a string
+     */
     public String getDayOfTheWeek(){
 
         int result = 0;
