@@ -8,7 +8,8 @@ public class BankAccount {
     private final int pin;
     private double balanceUsd;
 
-    public BankAccount(BankClient client, String accountNumber, Date accountOpened, Date accountClosed, int pin) {
+    public BankAccount(final BankClient client, final String accountNumber,
+                       final Date accountOpened, Date accountClosed, final int pin) {
         this.client = client;
         this.accountNumber = accountNumber;
         this.accountOpened = accountOpened;
@@ -16,11 +17,11 @@ public class BankAccount {
         this.pin = pin;
     }
 
-    public void withdraw(final double amountUsd){
+    public void withdraw(final double amountUsd) {
         balanceUsd -=  amountUsd;
     }
 
-    public void withdraw(final double amountUsd, final int pinToMatch){
+    public void withdraw(final double amountUsd, final int pinToMatch) {
         if(pinToMatch == pin) {
             balanceUsd -= amountUsd;
         } else {
