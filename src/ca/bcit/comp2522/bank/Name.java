@@ -77,8 +77,11 @@ public class Name {
      * @return the initials
      */
     public String getInitials(){
-        final String firstInitial = first.substring(0, 1).toUpperCase();
-        final String lastInitial = last.substring(0, 1).toUpperCase();
+        final String firstInitial;
+        final String lastInitial;
+
+        firstInitial = first.substring(0, 1).toUpperCase();
+        lastInitial = last.substring(0, 1).toUpperCase();
 
         return (firstInitial + "." + lastInitial + ".");
     }
@@ -89,11 +92,17 @@ public class Name {
      * @return the full name with capitalization applied
      */
     public String getFullName(){
-        final String firstNameFirstLetter = first.substring(0, 1).toUpperCase();
-        final String lastNameFirstLetter = last.substring(0, 1).toUpperCase();
+        final String firstNameFirstLetter;
+        final String lastNameFirstLetter;
 
-        final String restOfFirstName = first.substring(1).toLowerCase();
-        final String restOfLastName = last.substring(1).toLowerCase();
+        firstNameFirstLetter = first.substring(0, 1).toUpperCase();
+        lastNameFirstLetter = last.substring(0, 1).toUpperCase();
+
+        final String restOfFirstName;
+        final String restOfLastName;
+
+        restOfFirstName = first.substring(1).toLowerCase();
+        restOfLastName = last.substring(1).toLowerCase();
 
         return (firstNameFirstLetter + restOfFirstName + " "
                 + lastNameFirstLetter + restOfLastName);
@@ -105,7 +114,8 @@ public class Name {
      * @return the full name as a reversed string
      */
     public String getReverseName() {
-        final String fullName = getFullName();
+        final String fullName;
+        fullName = getFullName();
         return new StringBuilder(fullName).reverse().toString();
     }
 
