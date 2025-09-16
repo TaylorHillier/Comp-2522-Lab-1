@@ -255,32 +255,24 @@ public class Date {
         sumTwo = sum + Character.getNumericValue(MONTH_CODES.charAt(month - DAYS_IN_MONTH_OFFSET));
         finalResult = sumTwo % DAYS_IN_WEEK;
 
-        switch (finalResult) {
-            case SATURDAY:
-                return "Saturday";
-
-            case SUNDAY:
-                return "Sunday";
-
-            case MONDAY:
-                return "Monday";
-
-            case TUESDAY:
-                return "Tuesday";
-
-            case WEDNESDAY:
-                return "Wednesday";
-
-            case THURSDAY:
-                return "Thursday";
-
-            case FRIDAY:
-                return "Friday";
-
-            default:
-                return "Error";
-
+        if (finalResult == SATURDAY) {
+            return "Saturday";
+        } else if (finalResult == SUNDAY) {
+            return "Sunday";
+        } else if (finalResult == MONDAY) {
+            return "Monday";
+        } else if (finalResult == TUESDAY) {
+            return "Tuesday";
+        } else if (finalResult == WEDNESDAY) {
+            return "Wednesday";
+        } else if (finalResult == THURSDAY) {
+            return "Thursday";
+        } else if (finalResult == FRIDAY) {
+            return "Friday";
+        } else {
+            return "Error";
         }
+
 
     }
 
