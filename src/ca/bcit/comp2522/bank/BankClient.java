@@ -2,7 +2,7 @@ package ca.bcit.comp2522.bank;
 
 /**
  * Represents a client of the bank. A {@code BankClient} stores identifying
- * information such as the client's name, birth date, optional death date,
+ * information such as the client's name, birthdate, optional death date,
  * client number, and the date they signed up with the bank.
  */
 public class BankClient {

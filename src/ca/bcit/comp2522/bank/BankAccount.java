@@ -1,7 +1,5 @@
 package ca.bcit.comp2522.bank;
 
-import java.util.Date;
-
 /**
  * Represents a bank account owned by a Bank Client. A
  * Bank Account tracks the client, account number, open/close
