@@ -6,7 +6,9 @@ package ca.bcit.comp2522.bank;
  * dates, associated PIN, and the current balance in USD.
  *
  */
-public class BankAccount {
+public class BankAccount
+{
+
     private final BankClient client;
     private final String accountNumber;
     private final Date accountOpened;
@@ -23,8 +25,12 @@ public class BankAccount {
      * @param accountClosed the date the account was closed, or {@code null} if still open
      * @param pin           the security PIN for account access
      */
-    public BankAccount(final BankClient client, final String accountNumber,
-                       final Date accountOpened, Date accountClosed, final int pin) {
+    public BankAccount(final BankClient client,
+                       final String accountNumber,
+                       final Date accountOpened,
+                       Date accountClosed,
+                       final int pin)
+    {
         this.client = client;
         this.accountNumber = accountNumber;
         this.accountOpened = accountOpened;
@@ -37,8 +43,9 @@ public class BankAccount {
      *
      * @param amountUsd the amount to withdraw in USD
      */
-    public void withdraw(final double amountUsd) {
-        balanceUsd -=  amountUsd;
+    public void withdraw(final double amountUsd)
+    {
+        balanceUsd -= amountUsd;
     }
 
     /**
@@ -46,12 +53,16 @@ public class BankAccount {
      *
      * @param amountUsd  the amount to withdraw in USD
      * @param pinToMatch the PIN provided for verification
-     * @throws IllegalArgumentException if the provided PIN does not match
      */
-    public void withdraw(final double amountUsd, final int pinToMatch) {
-        if(pinToMatch == pin) {
+    public void withdraw(final double amountUsd,
+                         final int pinToMatch)
+    {
+        if (pinToMatch == pin)
+        {
             balanceUsd -= amountUsd;
-        } else {
+        }
+        else
+        {
             throw new IllegalArgumentException("Pin does not match.");
         }
     }
@@ -61,7 +72,8 @@ public class BankAccount {
      *
      * @param amountUsd the amount to deposit in USD
      */
-    public void deposit(final double amountUsd){
+    public void deposit(final double amountUsd)
+    {
         balanceUsd += amountUsd;
     }
 
@@ -72,20 +84,28 @@ public class BankAccount {
      *
      * @return a string containing account details
      */
-    public String getDetails() {
-        String accountClosedMessage;
+    public String getDetails()
+    {
+        final String accountClosedMessage;
 
-        accountClosedMessage = accountClosed != null ? (" closed " + accountClosed) : " is still open";
+        if (accountClosed != null)
+        {
+            accountClosedMessage = " closed " + accountClosed;
+        }
+        else
+        {
+            accountClosedMessage = " is still open";
+        }
 
         return client.getClientName() +
-                " had $" +
-                balanceUsd +
-                " USD in account #" +
-                accountNumber +
-                " which he opened on " +
-                accountOpened.toString() +
-                " " +
-                accountClosedMessage;
+            " had $" +
+            balanceUsd +
+            " USD in account #" +
+            accountNumber +
+            " which he opened on " +
+            accountOpened.toString() +
+            " " +
+            accountClosedMessage;
     }
 
     /**
@@ -93,7 +113,8 @@ public class BankAccount {
      *
      * @return the account balance
      */
-    public double getBalanceUsd() {
+    public double getBalanceUsd()
+    {
         return balanceUsd;
     }
 }

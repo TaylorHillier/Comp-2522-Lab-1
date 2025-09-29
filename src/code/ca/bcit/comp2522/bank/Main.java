@@ -5,7 +5,8 @@ package ca.bcit.comp2522.bank;
  * performing deposits and withdrawals, and printing account details.
  *
  */
-public class Main {
+public class Main
+{
 
     // Month Constants
     private static final int JAN = 1;
@@ -109,11 +110,12 @@ public class Main {
      * Prints details of a person including their name, client details,
      * and associated bank account details.
      *
-     * @param name    the person's {@link Name}
-     * @param client  the person's {@link BankClient}
-     * @param account the person's {@link BankAccount}
+     * @param name    the person's name
+     * @param client  the person's bank client
+     * @param account the person's bank account
      */
-    private static void printPerson(Name name, BankClient client, BankAccount account) {
+    private static void printPerson(Name name, BankClient client, BankAccount account)
+    {
         System.out.println("Initials: " + name.getInitials());
         System.out.println("Full name: " + name.getFullName());
         System.out.println("Reversed name: " + name.getReverseName());
@@ -129,16 +131,18 @@ public class Main {
      *
      * @param args command-line arguments (unused)
      */
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         // Albert Einstein (March 14, 1879 – April 18, 1955)
         Name einsteinName = new Name("Albert", "Einstein");
         Date einsteinBirth = new Date(EINSTEIN_BIRTH_DAY, EINSTEIN_BIRTH_MONTH, EINSTEIN_BIRTH_YEAR);
         Date einsteinDeath = new Date(EINSTEIN_DEATH_DAY, EINSTEIN_DEATH_MONTH, EINSTEIN_DEATH_YEAR);
         Date einsteinSignup = new Date(EINSTEIN_SIGNUP_DAY, EINSTEIN_SIGNUP_MONTH, EINSTEIN_SIGNUP_YEAR);
         Date einsteinClosed = new Date(EINSTEIN_CLOSED_DAY, EINSTEIN_CLOSED_MONTH, EINSTEIN_CLOSED_YEAR);
-        BankClient einsteinClient = new BankClient(einsteinName, einsteinBirth, einsteinDeath, EINSTEIN_ACCOUNT_NUMBER, einsteinSignup);
-        BankAccount einsteinAcct = new BankAccount(einsteinClient, EINSTEIN_PASSWORD, einsteinSignup, einsteinClosed, EINSTEIN_PIN);
+        BankClient einsteinClient = new BankClient(einsteinName, einsteinBirth, einsteinDeath,
+            EINSTEIN_ACCOUNT_NUMBER, einsteinSignup);
+        BankAccount einsteinAcct = new BankAccount(einsteinClient, EINSTEIN_PASSWORD, einsteinSignup, einsteinClosed,
+            EINSTEIN_PIN);
 
         System.out.println("Balance pre-deposit $" + einsteinAcct.getBalanceUsd());
         einsteinAcct.deposit(DEPOSIT_1000);
@@ -148,12 +152,14 @@ public class Main {
         printPerson(einsteinName, einsteinClient, einsteinAcct);
         System.out.println();
 
+
         // Nelson Mandela (July 18, 1918 – December 5, 2013)
         Name mandelaName = new Name("Nelson", "Mandela");
         Date mandelaBirth = new Date(MANDELA_BIRTH_DAY, MANDELA_BIRTH_MONTH, MANDELA_BIRTH_YEAR);
         Date mandelaDeath = new Date(MANDELA_DEATH_DAY, MANDELA_DEATH_MONTH, MANDELA_DEATH_YEAR);
         Date mandelaSignup = new Date(MANDELA_SIGNUP_DAY, MANDELA_SIGNUP_MONTH, MANDELA_SIGNUP_YEAR);
-        BankClient mandelaClient = new BankClient(mandelaName, mandelaBirth, mandelaDeath, MANDELA_ACCOUNT_NUMBER, mandelaSignup);
+        BankClient mandelaClient = new BankClient(mandelaName, mandelaBirth, mandelaDeath, MANDELA_ACCOUNT_NUMBER,
+            mandelaSignup);
         BankAccount mandelaAcct = new BankAccount(mandelaClient, MANDELA_PASSWORD, mandelaSignup, null, MANDELA_PIN);
 
         System.out.println("Balance pre-deposit $" + mandelaAcct.getBalanceUsd());
@@ -163,6 +169,7 @@ public class Main {
         System.out.println("Balance post-withdraw $" + mandelaAcct.getBalanceUsd());
         printPerson(mandelaName, mandelaClient, mandelaAcct);
         System.out.println();
+
 
         // Frida Kahlo (July 6, 1907 – July 13, 1954)
         Name fridaName = new Name("Frida", "Kahlo");
@@ -179,6 +186,7 @@ public class Main {
         fridaAcct.withdraw(WITHDRAW_50, FRIDA_PIN);
         System.out.println("Balance post-withdraw $" + fridaAcct.getBalanceUsd());
         printPerson(fridaName, fridaClient, fridaAcct);
+
 
         // Jackie Chan (April 7, 1954 – still alive)
         Name jackieName = new Name("Jackie", "Chan");

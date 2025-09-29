@@ -5,7 +5,8 @@ package ca.bcit.comp2522.bank;
  * information such as the client's name, birthdate, optional death date,
  * client number, and the date they signed up with the bank.
  */
-public class BankClient {
+public class BankClient
+{
     private final Name clientName;
     private final Date birthDate;
     private final Date deathDate;
@@ -15,15 +16,18 @@ public class BankClient {
     /**
      * Constructs a new {@code BankClient}.
      *
-     * @param clientName  the client's name
-     * @param birthDate   the client's date of birth
-     * @param deathDate   the client's date of death, or {@code null} if alive
+     * @param clientName   the client's name
+     * @param birthDate    the client's date of birth
+     * @param deathDate    the client's date of death, or {@code null} if alive
      * @param clientNumber the unique client identifier
-     * @param signupDate  the date the client joined the bank
+     * @param signupDate   the date the client joined the bank
      */
-    public BankClient(final Name clientName, final Date birthDate,
-                      final Date deathDate, final int clientNumber,
-                      final Date signupDate) {
+    public BankClient(final Name clientName,
+                      final Date birthDate,
+                      final Date deathDate,
+                      final int clientNumber,
+                      final Date signupDate)
+    {
         this.clientName = clientName;
         this.birthDate = birthDate;
         this.deathDate = deathDate;
@@ -38,20 +42,28 @@ public class BankClient {
      *
      * @return a formatted string with client details
      */
-    public String getDetails() {
+    public String getDetails()
+    {
         boolean clientAlive;
         String statusMessage;
 
         clientAlive = deathDate == null;
 
-        statusMessage = clientAlive ? "(alive)" : "(died " + deathDate + ")";
+        if (clientAlive)
+        {
+            statusMessage = "(alive)";
+        }
+        else
+        {
+            statusMessage = "(died " + deathDate + ")";
+        }
 
         return clientName.getFullName() +
-                " client " +
-                clientNumber +
-                statusMessage +
-                " joined the bank on " +
-                signupDate.toString();
+            " client " +
+            clientNumber +
+            statusMessage +
+            " joined the bank on " +
+            signupDate.toString();
     }
 
     /**
@@ -59,7 +71,8 @@ public class BankClient {
      *
      * @return the client's name as a string
      */
-    public String getClientName() {
+    public String getClientName()
+    {
         return clientName.getFullName();
     }
 }
